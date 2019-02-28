@@ -1,0 +1,8 @@
+fr\afpa\formation\entity\Item.class
+fr\afpa\formation\entity\ItemOrder.class
+fr\afpa\formation\reposiroty\ItemRepository.class
+fr\afpa\formation\entity\Order.class
+fr\afpa\formation\reposiroty\CategoryRepository.class
+fr\afpa\formation\reposiroty\OrderRepository.class
+fr\afpa\formation\entity\Category.class
+fr\afpa\formation\reposiroty\ItemOrderRepository.class

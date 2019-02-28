@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div id="header">
+		<h1 th:text="#{title.specie}"></h1>
+	</div>
+	<div id="container">
+		<h2 th:text="#{list.specie}"></h2>
+		<div id="species" class="flex-r">
+			<div th:each="specie : ${listSpecie}" class="specie">
+				<div class="top flex-c">
+					<div class="circle flex-c">
+						<p class='flex-c' th:text="${specie.id}" />
+					</div>
+				</div>
+				<div class="bottom flex-c">
+					<span th:text="#{commonName.specie}"></span>
+					<p th:text="${specie.commonName}" />
+					<span th:text="#{latinName.specie}"></span>
+					<p th:text="${specie.latinName}" />
+					<div class="button flex-r">
+						<a th:href="@{|/specie/${specie.id}/update|}">
+							<i class="fas fa-pen"></i>
+						</a>
+						<a th:href="'javascript:confirmDelete(' + ${specie.id} +');'">
+							<i class="fas fa-minus-circle"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="createDiv">
+			<a th:href="@{/specie/create}" id="create" th:text="#{create.specie}"></a>
+		</div>
+	</div>
+	<script>
+		var mickey = document.getElementById("mickeyImg");
+		var bool = true;
+
+		function confirmDelete(id) {
+			var isConfirm = confirm("Proceed ?");
+			if (isConfirm) {
+				window.location.replace("/specie/" + id + "/delete");
+			}
+		}
+
+		function mickeyParachute() {
+			if (bool) {
+				mickey.style.left = mickey.offsetLeft + 100 + "px"
+				bool = false;
+			} else {
+				mickey.style.left = mickey.offsetLeft - 100 + "px"
+				bool = true;
+			}
+			mickey.style.top = mickey.offsetTop + 50 + "px"
+			setTimeout(mickeyParachute, 2500);
+		}
+		mickeyParachute();
+	</script>
+</body>
+</html>

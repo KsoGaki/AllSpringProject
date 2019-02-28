@@ -1,0 +1,16 @@
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\client\ClientAlreadyExistsException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\service\ClientService.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\service\OrdreReparationService.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\service\IService.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\vehicule\VehiculeNotValidException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\client\ClientNotAvailableException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\ordrereparation\OrdreReparationNotValidException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\vehicule\VehiculeNotFoundException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\client\ClientNotFoundException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\service\VehiculeService.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\ordrereparation\OrdreReparationNotAvailableException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\vehicule\VehiculeNotAvailableException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\client\ClientNotValidException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\ordrereparation\OrdreReparationAlreadyExistsException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\ordrereparation\OrdreReparationNotFoundException.java
+C:\Users\34011-65-06\Documents\workspace-sts\16-PoleMeca\PoleMecaBusiness\src\main\java\fr\afpa\formation\exception\vehicule\VehiculeAlreadyExistsException.java

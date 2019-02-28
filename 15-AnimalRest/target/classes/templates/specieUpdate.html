@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div id="mickeyScene">
+		<div id="mickeyImg">
+			<img th:src="@{/img/mickey.png}" />
+		</div>
+	</div>
+	<div id="header">
+		<h1>Specie</h1>
+	</div>
+	<div id="container">
+		<h2>Update Specie</h2>
+		<div id="species" class="flex-r">
+			<form action="/specie/do/update" method="post" class='flex-c'
+				id="createUpdate">
+				<label for="commonName" class='flex-c'>
+					Id
+					<input type="text" name="idSpecie" readonly="readonly"
+						th:value="${specieUpdate.id}" />
+				</label>
+				<label for="commonName" class='flex-c'>
+					CommonName
+					<input type="text" required="required" name="commonName"
+						th:placeholder="${specieUpdate.commonName}" />
+				</label>
+				<label for="latinName" class='flex-c'>
+					LatinName
+					<input type="text" required="required" name="latinName"
+						th:placeholder="${specieUpdate.latinName}" />
+				</label>
+				<input type="submit" value='Update' id='createUpdateButton' />
+			</form>
+		</div>
+	</div>
+	<script>
+		var mickey = document.getElementById("mickeyImg");
+		var bool = true;
+		var random;
+
+		function mickeyParachute() {
+			random = Math.round(Math.random()*100);
+			if (bool) {
+				mickey.style.left = mickey.offsetLeft + random + "px"
+				bool = false;
+			} else {
+				mickey.style.left = mickey.offsetLeft - random + "px"
+				bool = true;
+			}
+			mickey.style.top = mickey.offsetTop + 50 + "px"
+			setTimeout(mickeyParachute, 2500);
+		}
+		mickeyParachute();
+	</script>
+</body>
+</html>

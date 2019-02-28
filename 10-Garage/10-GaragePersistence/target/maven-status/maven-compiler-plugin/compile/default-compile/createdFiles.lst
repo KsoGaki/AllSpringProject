@@ -1,0 +1,14 @@
+fr\afpa\formation\repository\LocationRepository.class
+fr\afpa\formation\entity\Voiture.class
+fr\afpa\formation\repository\AddressRepository.class
+fr\afpa\formation\repository\VehiculeRepository.class
+fr\afpa\formation\entity\Garage.class
+fr\afpa\formation\entity\Address.class
+fr\afpa\formation\entity\Location.class
+fr\afpa\formation\entity\Person.class
+fr\afpa\formation\entity\Box.class
+fr\afpa\formation\repository\BoxRepository.class
+fr\afpa\formation\repository\PersonRepository.class
+fr\afpa\formation\entity\Vehicule.class
+fr\afpa\formation\repository\GarageRepository.class
+fr\afpa\formation\repository\VoitureRepository.class

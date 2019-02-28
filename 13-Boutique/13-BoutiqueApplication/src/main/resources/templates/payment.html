@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>OnlineShop - Payment</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div id="header">
+		<div id="headerContent" class='flex-r'>
+			<h1 th:text="#{title.item}"></h1>
+			<div id="nav" class="flex-r">
+				<a th:href="@{/}">
+					<i class="fas fa-home"></i>
+				</a>
+				<a th:href="@{/cart}">
+					<i th:href="#{/cart}" id="cart" class="fas fa-shopping-cart">
+						<span class="flex-c" th:text="${nbItem}"></span>
+					</i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		<h2 th:text="#{recap.title}"></h2>
+		<div id="items" class="flex-r overview">
+			<div th:each="cartItem : ${listCartItem}" class="cartItem flex-r">
+				<span class="id" th:text="'#' + ${cartItem.item.id}"></span>
+				<h3 th:text="${cartItem.item.name}"></h3>
+				<span class="code" th:text="${cartItem.item.code}"></span>
+				<p th:text="${#numbers.formatDecimal(cartItem.item.price, 0, 'DEFAULT', 2, 'DEFAULT')} + ' ' + #{currency.item}"></p>
+				<span class="quantity" th:text="${cartItem.quantity}"></span>
+				<p th:text="${#numbers.formatDecimal((cartItem.item.price * cartItem.quantity), 0, 'DEFAULT', 2, 'DEFAULT')} + ' ' + #{currency.item}"></p>
+			</div>
+			<div class="flex-r" id="total">
+				<div th:text="#{recap.total} + ': ' + ${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')} + ' ' + #{currency.item}"></div>
+			</div>
+		</div>
+		<h2 th:text="#{payment.title}"></h2>
+		<form action="/cart/payment/valid" method="post" id="paymentForm" class="flex-c">
+			<div class="flex-r creditCard">
+				<div id="front" class="flex-c">
+					<div class="flex-c">
+						<span th:text="#{payment.number}"></span>
+						<input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" th:minLength="19" th:maxLength="19" required />
+					</div>
+					<div class="flex-r" id='nameExpi'>
+						<div class="flex-c inputLarge">
+							<span th:text="#{payment.name}"></span>
+							<input type="text" placeholder="John Doe" required />
+						</div>
+						<div class="flex-c">
+							<span th:text="#{payment.expiration}"></span>
+							<div class="flex-r inputSmall">
+								<input type="number" placeholder="MM" min="1" max="12" maxLength="2" required />
+								<span class="flex-c">/</span>
+								<input type="number" placeholder="YY" min="19" max="25" maxLength="2" required />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="backTop" class="flex-c">
+					<div class="flex-r" id="line"></div>
+				</div>
+			</div>
+			<div id="backBottom" class="flex-c creditCard">
+				<div class="flex-c">
+					<span th:text="#{payment.CVV}"></span>
+					<input type="text" placeholder="XXX" th:minLength="3" th:maxLength="3" required />
+				</div>
+			</div>
+			<input id="submit" type="submit" th:value="#{payment.submit}" />
+		</form>
+	</div>
+</body>
+
+
+<script>
+	var paymentForm = document.getElementById("paymentForm");
+	var listInput = paymentForm.getElementsByTagName("input");
+
+	listInput[0].addEventListener('input', addLine);
+
+	function addLine() {
+		var numberCard = listInput[0];
+		var value = numberCard.value;
+		if (value.length > 3 && value.charAt(4) != "-") {
+			numberCard.value = value.substring(0, 4) + "-"
+					+ value.substring(4, value.length)
+		}
+		if (value.length > 8 && value.charAt(9) != "-") {
+			numberCard.value = value.substring(0, 9) + "-"
+					+ value.substring(9, value.length)
+		}
+		if (value.length > 13 && value.charAt(14) != "-") {
+			numberCard.value = value.substring(0, 14) + "-"
+					+ value.substring(14, value.length)
+		}
+		if (value.length == 1) {
+			numberCard.validity.valid = true;
+		} else {
+			numberCard.validity.valid = false;
+		}
+	}
+</script>
+
+
+</html>

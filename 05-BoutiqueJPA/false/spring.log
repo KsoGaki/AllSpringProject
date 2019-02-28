@@ -1,0 +1,4 @@
+2018-12-18 10:39:16.941  INFO 6692 --- [main] fr.afpa.Application                      : Starting Application on STA6301470 with PID 6692 (C:\Users\34011-65-06\Documents\workspace-sts\05-BoutiqueJPA\target\classes started by 34011-65-06 in C:\Users\34011-65-06\Documents\workspace-sts\05-BoutiqueJPA)
+2018-12-18 10:39:16.944  INFO 6692 --- [main] fr.afpa.Application                      : No active profile set, falling back to default profiles: default
+2018-12-18 10:39:18.288  INFO 6692 --- [main] fr.afpa.Application                      : Started Application in 1.583 seconds (JVM running for 2.019)
+2018-12-18 10:39:18.290  INFO 6692 --- [main] fr.afpa.Application                      : Bonjour

@@ -1,0 +1,7 @@
+fr\afpa\formation\exception\VoitureNotValidException.class
+fr\afpa\formation\exception\VoitureNullException.class
+fr\afpa\formation\service\VoitureService.class
+fr\afpa\formation\exception\VoitureNotFoundException.class
+fr\afpa\formation\exception\VoitureAlreadyExistsException.class
+fr\afpa\formation\exception\VoitureNotAvailableException.class
+fr\afpa\formation\service\IService.class

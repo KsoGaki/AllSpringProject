@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="#{title.page}"></title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div id="header">
+		<div id="headerContent" class='flex-r'>
+			<h1 th:text="#{title.item}"></h1>
+			<div id="nav" class="flex-r">
+				<a th:href="@{/}">
+					<i class="fas fa-home"></i>
+				</a>
+				<a th:href="@{/cart}">
+					<i th:href="#{/cart}" id="cart" class="fas fa-shopping-cart">
+						<span class="flex-c" th:text="${nbItem}"></span>
+					</i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		<h2 th:text="#{cart.title}"></h2>
+		<div id="items" class="flex-r">
+			<div th:each="cartItem : ${listCartItem}" class="cartItem flex-r">
+				<span class="id" th:text="'#' + ${cartItem.item.id}"></span>
+				<h3 th:text="${cartItem.item.name}"></h3>
+				<span class="code" th:text="${cartItem.item.code}"></span>
+				<p th:text="${cartItem.item.price} + ' ' + #{currency.item}"></p>
+				<input th:id="'quantity' + ${cartItem.item.id} +''" type="number" class="quantity" th:value="${cartItem.quantity}" th:onKeyDown="'checkQuantity('+ ${cartItem.item.id} +', event)'">
+				<p th:text="${#numbers.formatDecimal((cartItem.item.price * cartItem.quantity), 0, 'DEFAULT', 2, 'DEFAULT')} + ' ' + #{currency.item}"></p>
+				<div class="icon">
+					<a th:href="'javascript:removeFromCart(' + ${cartItem.item.id} +');'">
+						<i class="fas fa-trash"></i>
+					</a>
+				</div>
+			</div>
+			<div id="payment" class="flex-r">
+				<a th:href="@{/cart/payment}" th:text="#{cart.proceed}"></a>
+				<a th:href="@{/cart/clear}" th:text="#{cart.clear}"></a>
+			</div>
+		</div>
+	</div>
+	<form action="/removeFromCart/" method="post" id="idForm">
+		<input type="hidden" name='id' id="idItem" />
+	</form>
+	<form action="/changeQuantity/" method="post" id="quantityForm">
+		<input type="hidden" name='id' id="quantityItem" />
+		<input type="hidden" name='quantity' id="quantityQuantity" />
+	</form>
+</body>
+<script>
+	function removeFromCart(id) {
+		var idItem = document.getElementById("idItem");
+		var form = document.getElementById("idForm");
+		idItem.value = id;
+		form.submit();
+	}
+	function checkQuantity(id, e) {
+		var idQuantity = document.getElementById("quantity" + id);
+/* 		if (idQuantity.value.length > 1) {
+			idQuantity.value = idQuantity.value.substring(0, 1);
+		} */
+		if (e.key == "Enter") {
+			var quantityItem = document.getElementById("quantityItem");
+			var quantityForm = document.getElementById("quantityForm");
+			var quantityQuantity = document.getElementById("quantityQuantity");
+			quantityItem.value = id;
+			quantityQuantity.value = document.getElementById("quantity" + id).value;
+			quantityForm.submit();
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div id="header">
+		<h1>Specie</h1>
+	</div>
+	<div id="container">
+		<h2>Create Specie</h2>
+		<div id="species" class="flex-r">
+			<form action="/specie/do/create" method="post" class='flex-c' id="createUpdate">
+				<label for="commonName" class='flex-c'>
+					CommonName
+					<input type="text" required="required" name="commonName"/>
+				</label>
+				<label for="latinName" class='flex-c'>
+					LatinName
+					<input type="text" required="required" name="latinName"/>
+				</label>
+				<input type="submit" value='Create' id='createUpdateButton'/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

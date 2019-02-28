@@ -1,0 +1,6 @@
+fr\afpa\formation\entity\Person.class
+fr\afpa\formation\entity\Animal.class
+fr\afpa\formation\repository\PersonRepository.class
+fr\afpa\formation\entity\Specie.class
+fr\afpa\formation\repository\AnimalRepository.class
+fr\afpa\formation\repository\SpecieRepository.class

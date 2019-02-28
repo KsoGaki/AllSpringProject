@@ -1,0 +1,221 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web";
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+.flex-r {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+}
+
+.flex-c {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+
+#header {
+	background-color: pink;
+	padding: 25px 0;
+	box-shadow: 10px 10px 10px lightgrey;
+}
+
+#header h1 {
+	color: white;
+	font-variant: small-caps;
+	font-size: 120px;
+	font-weight: 300;
+	letter-spacing: 3px;
+	text-align: center;
+}
+
+#container {
+	width: 1240px;
+	margin: 40px auto;
+	position: relative;
+	z-index: 2;
+}
+
+#container h2 {
+	font-variant: small-caps;
+	font-size: 35px;
+	font-weight: 300;
+	border-bottom: 2px solid pink;
+}
+
+#species {
+	margin-top: 50px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 15px;
+}
+
+.specie {
+	width: 22.5%;
+	margin-top: 50px;
+}
+
+.top {
+	width: 100%;
+	height: 50px;
+	background-color: pink;
+	position: relative;
+}
+
+.top .circle {
+	top: -40px;
+	width: 88px;
+	height: 88px;
+	left: calc(50% - 44px);
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+}
+
+.top p {
+	border: 2px solid grey;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	justify-content: center;
+	align-items: center;
+	font-size: 27px;
+	color: grey;
+}
+
+.bottom {
+	padding: 15px;
+	text-align: center;
+	border: 2px solid pink;
+}
+
+.bottom span {
+	font-variant: small-caps;
+	font-size: 18px;
+	color: grey;
+	font-weight: 300;
+}
+
+.bottom p {
+	font-size: 22px;
+}
+
+.bottom .button {
+	justify-content: center;
+	align-items: center;
+	color: grey;
+}
+
+.bottom .button a {
+	margin: 0 5px;
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+#createDiv {
+	text-align: center;
+}
+
+a#create {
+	margin-top: 25px;
+}
+
+a#create, #createUpdateButton {
+	padding: 5px 15px;
+	background-color: pink;
+	font-size: 20px;
+	color: white;
+	border: none;
+	transition: all .25s;
+	cursor: pointer;
+	display: inline-block;
+}
+
+a#create:hover, #createUpdateButton:hover {
+	box-shadow: 5px 5px 5px lightgray;
+}
+
+form#createUpdate label {
+	margin: 10px 0;
+	text-align: center;
+	color: grey;
+	font-size: 24px;
+}
+
+form#createUpdate label input {
+	padding: 3px;
+	width: 250px;
+	font-size: 18px;
+}
+
+form#createUpdate input:active, form#createUpdate input:focus {
+	outline-color: pink;
+}
+
+#createUpdateButton {
+	margin: 15px auto;
+	width: 75%;
+}
+
+input[type="text"]:read-only {
+	background-color: rgba(235, 235, 235, .5);
+	border: 1px solid lightgray;
+}
+
+form#createUpdate label:nth-child(1) input {
+	text-align: center;
+}
+
+#mickeyScene {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 1;
+}
+
+#mickeyScene #mickeyImg {
+	position: absolute;
+	width: 80px;
+	left: calc(50% - 40px);
+	top:0;
+	z-index: 9999999;
+	transition: all 5s;
+}
+
+#mickeyScene #mickeyImg img {
+	max-width: 100%;
+}

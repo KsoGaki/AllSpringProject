@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>OnlineShop - Home</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div id="header">
+		<div id="headerContent" class='flex-r'>
+			<h1 th:text="#{title.item}"></h1>
+			<div id="nav" class="flex-r">
+				<a th:href="@{/}">
+					<i class="fas fa-home"></i>
+				</a>
+				<a th:href="@{/cart}">
+					<i th:href="#{/cart}" id="cart" class="fas fa-shopping-cart">
+						<span class="flex-c" th:text="${nbItem}"></span>
+					</i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		<h2 th:text="#{list.item}"></h2>
+		<div id="items" class="flex-r">
+			<div th:each="item : ${listItem}" class="item">
+				<div class="top flex-r">
+					<div class="topContent"></div>
+					<span class="id" th:text="${item.id}"></span>
+				</div>
+				<div class="bottom flex-c">
+					<h3 th:text="${item.name}"></h3>
+					<span class=></span>
+					<p th:text="${item.price} + ' ' + #{currency.item}"></p>
+					<div class="icon">
+						<a th:href="'javascript:addToCart(' + ${item.id} +');'"><i class="fas fa-cart-plus"></i></a>
+						<!-- <i class="fas fa-edit"></i> -->
+					</div>
+					<span class="code" th:text="${item.code}"></span>
+				</div>
+			</div>
+			<div th:each="fill : ${listFill}" class="item hidden"></div>
+		</div>
+	</div>
+	<form action="/addToCart/" method="post" id="idForm">
+		<input type="hidden" name='id' id="idItem"/>
+	</form>
+</body>
+<script>
+	function addToCart(id) {
+		var idItem = document.getElementById("idItem");
+		var form = document.getElementById("idForm");
+		idItem.value = id;
+		form.submit();
+	}
+</script>
+</html>

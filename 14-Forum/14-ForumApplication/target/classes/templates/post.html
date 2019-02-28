@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Welcome to Forum</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="flex-c" id="title">
+		<h1>Forum</h1>
+	</div>
+	<div id="container">
+		<h2 th:text="${post.postName}"></h2>
+		<form id="writeComment" th:action='@{/post/addComment}' method='post'>
+			<textarea required name="message" id="textArea" placeholder='Write your comment there ...'></textarea>
+			<div class="flex-r">
+				<input id='idPost' name="idPost" type="hidden" th:value='${post.id}' />
+				<input required type="text" placeholder='Enter your pseudo' name='userName' />
+				<input id='createComment' type="submit" value='Submit' />
+			</div>
+		</form>
+		<div class="comments flex-r " th:each="comment : ${post.listComment}">
+			<div class="imgProfile flex-c">
+				<div class="flex-c top" th:text="${#strings.substring(comment.userName,0,1)}"></div>
+				<p th:text="${comment.userName}"></p>
+			</div>
+			<div class="commentContent">
+				<a class="deleteCross" href="">(delete)</a>
+				<p th:text="${comment.message}"></p>
+				<span th:text="${comment.date}"></span>
+			</div>
+		</div>
+		<div style="margin-top: 75px; text-align: center;">
+			<a id="create" th:href='@{/}' style='margin-top: 50px'>Back Home</a>
+		</div>
+	</div>
+</body>
+</html>
